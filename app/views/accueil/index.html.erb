@@ -1,0 +1,30 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">The Gossips Project</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost:3000/accueil/index">Home</a></li>
+      <li><a href="http://localhost:3000/team/index">Team</a></li>
+      <li><a href="http://localhost:3000/contact/index">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<h1>Bienvenue sur la page d'accueil !</h1>
+<p>Ici retrouvez tous les gossips !</p>
+
+<table>
+    <% @gossips.each do |gossip| %>
+
+   <tr>
+    <td><%= gossip.title%></td>
+   </tr>
+  
+    <tr>
+    <td> par :<a href="">  <%= gossip.user.first_name%> </a> </td>
+   </tr>
+    
+    
+    <% end %>
+</table>
