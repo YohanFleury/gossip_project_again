@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'accueil/index'
-  get 'team/index' 
-  get 'contact/index'
+  get 'accueil', to: 'accueil#index'
+  get 'team', to: 'team#index'
+  get 'contact', to: 'contact#index'
   
 end
