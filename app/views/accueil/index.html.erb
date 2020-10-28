@@ -19,12 +19,14 @@
 
    <tr>
     <td><%= gossip.title%></td>
+    <td><a href="/gossips/<%= gossip.id %>/edit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editer</a></td>
    </tr>
   
     <tr>
-    <td> par :<a href="">  <%= gossip.user.first_name%> </a> </td>
+    <td> par :<a href="">  <%= gossip.user.first_name%> </a> </td><td></td>
    </tr>
     
     
     <% end %>
 </table>
+

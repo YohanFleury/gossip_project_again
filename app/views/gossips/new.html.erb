@@ -1,0 +1,25 @@
+<h1>Gossips#new</h1>
+<p>Crée ton gossip !</p>
+
+<h2>Création gossip.</h2>
+
+<%= @gossip%>
+
+
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+  Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :
+  <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+  
+<% end %>
+<form action="/gossips" method="POST">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+      <input type="text" name="gossip_title"> Ici le titre du gossip
+ <br> <input type="text" name="gossip_content">ici le contenu de celui-ci
+ <br> <input type="submit" value="Valider">
+</form>

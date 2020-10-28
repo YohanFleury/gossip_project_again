@@ -1,0 +1,21 @@
+<h1>Gossips#edit</h1>
+<p>Find me in app/views/gossips/edit.html.erb</p>
+
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+  Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :
+  <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<form action="/gossips" method="PUT">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+      <input type="text" name="gossip_title" value="<%= @gossip.title %>"> Ici le titre du gossip
+ <br> <input type="text" name="gossip_content" value="<%= @gossip.content %>">ici le contenu de celui-ci
+ <input type="hidden" name="gossip_id" value="<%= @gossip.id %>">
+ <br> <input type="submit" value="Valider">
+</form>
