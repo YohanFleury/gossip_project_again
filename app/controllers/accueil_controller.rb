@@ -1,7 +1,7 @@
 class AccueilController < ApplicationController
 
   def index
-    @gossips= Gossip.all
+    @gossips= Gossip.all.order(updated_at: :desc)
    
   end
 end

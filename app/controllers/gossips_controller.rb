@@ -1,18 +1,18 @@
 class GossipsController < ApplicationController
+
   def index
     @gossips_all = Gossip.all
   end
 
   def show
-    
+    @gossip = Gossip.find(params[:id]) 
+       
     
   end
 
   def new
-    print 'SELF dans le new : '
-    puts self
     @gossip = Gossip.new
-    @total_gossip = Gossip.count
+    
   end
 
   def create
@@ -37,19 +37,23 @@ class GossipsController < ApplicationController
   end
 
   def update
-    @gossip = Gossip.find_by(id:params["gossip_id"])
-    @gossip.title = params["gossip_title"]
-    @gossip.content = params["gossip_content"]  
-
-    if @gossip.save 
+    
+    @gossip = Gossip.find(params[:id])
+    gossip_params = params.require(:gossip).permit(:title, :content)
+    @gossip.update(gossip_params)
+    
+    if @gossip.update(gossip_params) 
       #ecrire la redirection vers page accueil
-      redirect_to '/accueil'
+      redirect_to @gossip
     else 
       #ecrire la redirection vers la page de formulaire de creation avec les vlaeurs 
-      render action: 'new'
+      render :edit
     end
   end
 
   def destroy
+    @gossip = Gossip.find_by(id:params[:id])
+    @gossip.destroy
+    redirect_to accueil_path
   end
 end

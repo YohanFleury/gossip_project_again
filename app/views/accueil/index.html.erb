@@ -8,25 +8,23 @@
       <li class="active"><a href="http://localhost:3000/accueil/">Home</a></li>
       <li><a href="http://localhost:3000/team/">Team</a></li>
       <li><a href="http://localhost:3000/contact/">Contact</a></li>
+      <li><a href="<%= new_gossip_path%>"> Gossip</a></li>
     </ul>
   </div>
 </nav>
 <h1>Bienvenue sur la page d'accueil !</h1>
 <p>Ici retrouvez tous les gossips !</p>
 
-<table>
-    <% @gossips.each do |gossip| %>
-
-   <tr>
-    <td><%= gossip.title%></td>
-    <td><a href="/gossips/<%= gossip.id %>/edit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editer</a></td>
-   </tr>
   
-    <tr>
-    <td> par :<a href="">  <%= gossip.user.first_name%> </a> </td><td></td>
-   </tr>
-    
-    
-    <% end %>
-</table>
+  <% @gossips.each do |gossip| %>
+
+   
+  <h1> * <%=gossip.title%> * </h1>
+  <p> <a href=""> Auteur :  <%= gossip.user.first_name%> </a> </p>
+  <a href="<%= edit_gossip_path(gossip.id)%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editer</a></button> 
+  <a href="<%=gossip_path(gossip.id)%>" class="btn btn-info"> Plus d'infos </a> </button>
+  <% end %>
+
+  
+
 

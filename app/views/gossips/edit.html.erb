@@ -1,6 +1,7 @@
 <h1>Gossips#edit</h1>
 <p>Find me in app/views/gossips/edit.html.erb</p>
 
+
 <% if @gossip.errors.any? %>
   <div class="alert alert-danger" role="alert">
   Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :
@@ -11,11 +12,20 @@
   </ul>
 </div>
 <% end %>
+<%= form_for @gossip do |f| %>
+  <div class="form-group">
+    <label> Titre du gossip </label>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label> Contenu du gossip </label>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <button type="submit" classe="btn btn-primary"> Modifier le gossip </button>
 
-<form action="/gossips" method="PUT">
-      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-      <input type="text" name="gossip_title" value="<%= @gossip.title %>"> Ici le titre du gossip
- <br> <input type="text" name="gossip_content" value="<%= @gossip.content %>">ici le contenu de celui-ci
- <input type="hidden" name="gossip_id" value="<%= @gossip.id %>">
- <br> <input type="submit" value="Valider">
-</form>
+<% end  %>
+
+
+
+

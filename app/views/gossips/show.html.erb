@@ -1,2 +1,12 @@
 <h1>Gossips#show</h1>
 <p>Find me in app/views/gossips/show.html.erb</p>
+
+
+<h2><%= @gossip.title%> </h2>
+    <p> <%= @gossip.content%> </p>
+    
+    <p> <%= @gossip.user.first_name%> </p>
+    <p> <%= @gossip.user.city.name%> </p>
+
+    <a href="<%= gossip_path(@gossip.id) %>" type="button" class="btn btn-danger" data-confirm="Etes-vous sûr(e) de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</button>
+    <a href="<%= accueil_path%>" type="button" class="btn btn-primary">Revenir aux gossips</button>

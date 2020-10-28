@@ -1,9 +1,8 @@
-<h1>Gossips#new</h1>
-<p>Crée ton gossip !</p>
+<h1>Créer ton gossip !</h1>
 
-<h2>Création gossip.</h2>
 
-<%= @gossip%>
+
+
 
 
 <% if @gossip.errors.any? %>
@@ -19,7 +18,9 @@
 <% end %>
 <form action="/gossips" method="POST">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-      <input type="text" name="gossip_title"> Ici le titre du gossip
- <br> <input type="text" name="gossip_content">ici le contenu de celui-ci
- <br> <input type="submit" value="Valider">
+      <input type="text" class="form-control" name="gossip_title" placeholder="Titre du gossip"> 
+ <br> <input type="text" class="form-control" name="gossip_content" placeholder="Contenu de celui-ci">
+ <br> <input type="submit" value="Créer le gossip !" class="btn btn-success">
+      <a href="<%= accueil_path%>" type="button" class="btn btn-primary">Revenir aux gossips</button>
 </form>
+
