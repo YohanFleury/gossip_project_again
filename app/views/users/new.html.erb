@@ -1,0 +1,9 @@
+<h1> Ici tu peux créer ton compte ! </h1>
+
+
+<form action="/users" method="POST">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+      <input type="text" class="form-control" name="user_email" placeholder="email"> 
+ <br> <input type="password" class="form-control" name="user_password_digest" placeholder="Mot de passe">  
+ <br> <input type="submit" value="Créer le compte !" class="btn btn-success">
+</form>

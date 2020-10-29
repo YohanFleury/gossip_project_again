@@ -9,9 +9,20 @@
       <li><a href="http://localhost:3000/team/">Team</a></li>
       <li><a href="http://localhost:3000/contact/">Contact</a></li>
       <li><a href="<%= new_gossip_path%>"> Gossip</a></li>
+      <li><a href="<%= new_user_path%>"> Créer un compte</a></li>
+      <li><% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> 
+  <%= link_to "Log In", login_path %>
+<% end %>
+<p id=”notice”><%= notice %></p></li>
     </ul>
   </div>
 </nav>
+
+
 <h1>Bienvenue sur la page d'accueil !</h1>
 <p>Ici retrouvez tous les gossips !</p>
 
@@ -28,3 +39,11 @@
   
 
 
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or 
+  <%= link_to "Log In", login_path %>
+<% end %>
+<p id=”notice”><%= notice %></p>
